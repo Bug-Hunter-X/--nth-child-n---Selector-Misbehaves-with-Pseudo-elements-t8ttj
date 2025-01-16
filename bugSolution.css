@@ -1,0 +1,13 @@
+Instead of relying on `:nth-child(n)` directly, it's better to select the element explicitly and then style the pseudo-element separately or use a different approach to target the required elements.  Here's an example:
+
+```css
+/* buggy CSS */
+.container::before{content: "Buggy";}
+.container > div:nth-child(odd) { background-color: lightblue; }
+
+/* Solution */
+.container::before{content: "Fixed";}
+.container > div {background-color: white;}
+.container > div:nth-child(odd) {background-color: lightblue;}
+```
+The solution offers more precise and predictable styling.
